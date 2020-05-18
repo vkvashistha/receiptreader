@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.receiptreader.R
+import kotlinx.android.synthetic.main.fragment_home_screen.*
 
 class HomeScreenFragment : Fragment() {
 
@@ -22,6 +23,17 @@ class HomeScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        btn_add_bill.setOnClickListener {
+
+
+        }
+
+
+        btn_show_expenses.setOnClickListener {
+
+
+        }
     }
 
 }
