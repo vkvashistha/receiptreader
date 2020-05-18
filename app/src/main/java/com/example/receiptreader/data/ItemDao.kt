@@ -1,6 +1,5 @@
 package com.example.receiptreader.data
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -13,5 +12,5 @@ interface ItemDao {
     suspend fun insert(item : Item)
 
     @Query("SELECT * FROM items ORDER BY purchase_date DESC")
-    fun getAllItems() : ArrayList<Item>
+    fun getAllItems() : List<Item>
 }
