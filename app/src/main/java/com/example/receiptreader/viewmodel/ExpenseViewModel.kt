@@ -1,4 +1,4 @@
-package com.example.recieptreader.viewmodel
+package com.example.receiptreader.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
