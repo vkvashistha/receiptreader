@@ -1,4 +1,4 @@
-package com.example.recieptreader
+package com.example.receiptreader
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

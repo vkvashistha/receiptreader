@@ -1,4 +1,4 @@
-package com.example.recieptreader
+package com.example.receiptreader
 
 import org.junit.Test
 
