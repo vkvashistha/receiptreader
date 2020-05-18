@@ -1,4 +1,4 @@
-package com.example.recieptreader.ui
+package com.example.receiptreader.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

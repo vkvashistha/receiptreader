@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.receiptreader.R
 
-class ExpenseScreenFragment: Fragment() {
-
-
+class StatsScreenFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -17,7 +15,7 @@ class ExpenseScreenFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(false)
-        return inflater.inflate(R.layout.fragment_expense_screen, container, false)
+        return inflater.inflate(R.layout.fragment_stats_screen, container, false)
     }
 
 
@@ -25,6 +23,5 @@ class ExpenseScreenFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
     }
-
 
 }
