@@ -126,6 +126,7 @@
         android:background="#000000" />
 
     <LinearLayout
+        android:id="@+id/ll_header"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -174,8 +175,17 @@
             android:textSize="18sp"
             />
     </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/filtered_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_header"
+        android:layout_above="@+id/view2"
+        android:layout_gravity="center"/>
 
     <view
+        android:id="@+id/view2"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:layout_above="@+id/ll_total_amount"
