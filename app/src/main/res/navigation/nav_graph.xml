@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/homeScreenFragment">
+
+    <fragment
+        android:id="@+id/homeScreenFragment"
+        android:name="com.example.receiptreader.ui.HomeScreenFragment"
+        android:label="HomeScreenFragment" >
+        <action
+            android:id="@+id/action_show_expenses"
+            app:destination="@id/expenseScreenFragment" />
+        <action
+            android:id="@+id/action_add_new_receipt"
+            app:destination="@id/placeholder" />
+    </fragment>
+    <fragment
+        android:id="@+id/expenseScreenFragment"
+        android:name="com.example.receiptreader.ui.ExpenseScreenFragment"
+        android:label="ExpenseScreenFragment" >
+        <action
+            android:id="@+id/action_show_stats"
+            app:destination="@id/statsScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statsScreenFragment"
+        android:name="com.example.receiptreader.ui.StatsScreenFragment"
+        android:label="StatsScreenFragment" />
+    <fragment android:id="@+id/placeholder" />
+</navigation>

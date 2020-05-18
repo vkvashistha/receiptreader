@@ -14,18 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tv_text.setOnClickListener {
-            val listData = ExpenseRepository.getExpenses(Filters())
-            listData.observe(this@MainActivity, Observer { items->
-                var text = ""
-
-                for(item in items) {
-                    text += item.itemName
-                }
-
-                tv_text.text = text
-            })
-        }
         ExpenseRepository.initializeRepository(application)
 //        loadMockData()
 
