@@ -57,7 +57,7 @@ class StatsScreenFragment : Fragment() {
         val barChart = view.findViewById<BarChart>(R.id.barchart)
         val entries: ArrayList<BarEntry> = ArrayList()
         for (i in 0 until itemList.size) {
-            entries.add(BarEntry(itemList[i].price, 0))
+            entries.add(BarEntry(itemList[i].price.toFloat(), 0))
         }
         val bardataset = BarDataSet(entries, "Cells")
         val labels = ArrayList<String>()
@@ -78,7 +78,7 @@ class StatsScreenFragment : Fragment() {
         val piechart = view.findViewById<PieChart>(R.id.piechart)
         val pieChartEntries: ArrayList<Entry> = ArrayList()
         for (i in 0 until itemList.size) {
-            pieChartEntries.add(Entry(itemList[i].price, 0))
+            pieChartEntries.add(Entry(itemList[i].price.toFloat(), 0))
         }
         val piedataset = PieDataSet(pieChartEntries, "Cells")
         val label = ArrayList<String>()
