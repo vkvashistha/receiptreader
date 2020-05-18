@@ -41,7 +41,7 @@ object ExpenseRepository {
 
                 filterdItems.add(item)
             }
-            itemsLiveData.postValue(items)
+            itemsLiveData.postValue(filterdItems)
         }
         return itemsLiveData
     }
@@ -49,8 +49,8 @@ object ExpenseRepository {
     fun compareDate(left: String, right: String): Int {
         val format = SimpleDateFormat("yyyy-MM-dd")
 
-        val date1: Date = format.parse(left)
-        val date2: Date = format.parse(right)
+        val date1: Date = format.parse(left)!!
+        val date2: Date = format.parse(right)!!
 
         if (date1.compareTo(date2) < 0) {
             return -1
