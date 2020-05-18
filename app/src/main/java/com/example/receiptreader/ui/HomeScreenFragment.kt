@@ -1,11 +1,11 @@
-package com.example.recieptreader.ui
+package com.example.receiptreader.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.recieptreader.R
+import com.example.receiptreader.R
 
 class HomeScreenFragment : Fragment() {
 
