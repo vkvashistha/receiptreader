@@ -31,8 +31,9 @@ class HomeScreenFragment : Fragment() {
 
 
         btn_show_expenses.setOnClickListener {
-
-
+            val expenseScreenFragment = ExpenseScreenFragment()
+            fragmentManager?.beginTransaction()?.add(R.id.menu_cointainer, expenseScreenFragment,
+                ExpenseScreenFragment::class.java.simpleName)?.addToBackStack("ExpenseScreenFragment")?.commit()
         }
     }
 

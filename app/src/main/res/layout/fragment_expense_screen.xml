@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="false"
     android:padding="16dp">
 
     <LinearLayout
@@ -117,7 +118,7 @@
         android:text="Apply Filter"
         android:textSize="14sp" />
 
-    <view
+    <View
         android:id="@+id/view1"
         android:layout_width="match_parent"
         android:layout_height="3dp"
@@ -183,7 +184,7 @@
         android:layout_above="@+id/view2"
         android:layout_gravity="center"/>
 
-    <view
+    <View
         android:id="@+id/view2"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
