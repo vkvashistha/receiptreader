@@ -61,7 +61,7 @@ object ExpenseRepository {
         }
     }
 
-    fun saveExpenses(items: ArrayList<Item>) {
+    fun saveExpenses(items: List<Item>) {
         GlobalScope.launch(Dispatchers.IO) {
             for (item in items) {
                 itemDao.insert(item)
