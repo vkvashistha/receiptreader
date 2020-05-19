@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.receiptreader.R
 import com.example.receiptreader.adapter.ExpenseFilteredListAdapter
 import com.example.receiptreader.data.Filters
+import com.example.receiptreader.data.Item
 import com.example.receiptreader.viewmodel.ExpenseViewModel
 import kotlinx.android.synthetic.main.fragment_expense_screen.*
 
@@ -36,9 +37,8 @@ class ExpenseScreenFragment: Fragment() {
     lateinit var filteredListView: RecyclerView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var _view: View? = activity?.layoutInflater?.inflate(R.layout.fragment_expense_screen, null)
 
-        return _view
+        return activity?.layoutInflater?.inflate(R.layout.fragment_expense_screen, null)
     }
 
 
@@ -64,7 +64,7 @@ class ExpenseScreenFragment: Fragment() {
                     adapter = ExpenseFilteredListAdapter(it)
                     (adapter as ExpenseFilteredListAdapter).notifyDataSetChanged()
                     layoutManager = LinearLayoutManager(context)
-
+                    tv_total_amount.text = getTotalAmount(it).toString()
                 }
             }
 
@@ -73,6 +73,17 @@ class ExpenseScreenFragment: Fragment() {
 
 
 
+    }
+
+
+    private fun getTotalAmount(itemList:ArrayList<Item>):Double {
+        var totalAmount = 0.0
+        var i = 0
+        while (itemList.size>0 && itemList.size>i) {
+            totalAmount += itemList[i].price
+            i++
+        }
+        return totalAmount
     }
 
 

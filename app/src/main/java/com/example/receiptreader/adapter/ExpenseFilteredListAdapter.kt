@@ -34,7 +34,7 @@ class ExpenseFilteredListAdapter(filteredList: ArrayList<Item>) :
         fun onBindView(position: Int) {
             itemView.tv_category.text = filteredList[position].category
             itemView.tv_item.text = filteredList[position].itemName
-            itemView.tv_quantity.text = filteredList[position].qtyUnit
+            itemView.tv_quantity.text = filteredList[position].qty.toString()
             itemView.tv_price.text = filteredList[position].price.toString()
 
         }
