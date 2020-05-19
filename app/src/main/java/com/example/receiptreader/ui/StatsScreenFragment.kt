@@ -53,8 +53,13 @@ class StatsScreenFragment : Fragment() {
         val category = et_category.text.toString()
         val merchant = et_merchant.text.toString()
 
-        val itemList = statsViewModel.getExpenses(Filters(fromDate, toDate, category, merchant))
-        init(view, itemList)
+        statsViewModel.getExpenses(Filters(fromDate, toDate, category, merchant))
+
+        statsViewModel.itemsLiveData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            if (it.size > 0) {
+                init(view, it)
+            }
+        })
     }
 
     private fun init(
