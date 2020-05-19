@@ -12,7 +12,7 @@
             app:destination="@id/expenseScreenFragment" />
         <action
             android:id="@+id/action_add_new_receipt"
-            app:destination="@id/placeholder" />
+            app:destination="@id/screenScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/expenseScreenFragment"
@@ -26,9 +26,16 @@
         android:id="@+id/statsScreenFragment"
         android:name="com.example.receiptreader.ui.StatsScreenFragment"
         android:label="StatsScreenFragment" />
-    <fragment android:id="@+id/placeholder" />
     <fragment
         android:id="@+id/receiptScreenFragment"
         android:name="com.example.receiptreader.ui.ReceiptScreenFragment"
         android:label="ReceiptScreenFragment" />
+    <fragment
+        android:id="@+id/screenScreenFragment"
+        android:name="com.example.receiptreader.ui.ScanScreenFragment"
+        android:label="ReceiptScreenFragment" >
+        <action android:id="@+id/actionLaunchReceiptReader"
+            app:destination="@id/receiptScreenFragment"
+            />
+    </fragment>
 </navigation>
