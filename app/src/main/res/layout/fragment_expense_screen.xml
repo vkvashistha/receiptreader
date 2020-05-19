@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="false"
+    android:background="#ffffff"
     android:padding="16dp">
 
     <LinearLayout
@@ -160,7 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Qty"
-            android:gravity="center"
+            android:gravity="end"
             android:textColor="#000000"
             android:textStyle="bold"
             android:textSize="18sp"
@@ -170,7 +171,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Price"
-            android:gravity="center"
+            android:gravity="end"
             android:textColor="#000000"
             android:textStyle="bold"
             android:textSize="18sp"
