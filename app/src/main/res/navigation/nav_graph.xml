@@ -27,4 +27,8 @@
         android:name="com.example.receiptreader.ui.StatsScreenFragment"
         android:label="StatsScreenFragment" />
     <fragment android:id="@+id/placeholder" />
+    <fragment
+        android:id="@+id/receiptScreenFragment"
+        android:name="com.example.receiptreader.ui.ReceiptScreenFragment"
+        android:label="ReceiptScreenFragment" />
 </navigation>
