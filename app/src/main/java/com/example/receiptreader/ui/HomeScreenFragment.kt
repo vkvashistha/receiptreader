@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.receiptreader.R
 import kotlinx.android.synthetic.main.fragment_home_screen.*
 
@@ -25,15 +26,12 @@ class HomeScreenFragment : Fragment() {
 
 
         btn_add_bill.setOnClickListener {
-
-
+            findNavController().navigate(R.id.action_add_new_receipt)
         }
 
 
         btn_show_expenses.setOnClickListener {
-            val expenseScreenFragment = ExpenseScreenFragment()
-            fragmentManager?.beginTransaction()?.add(R.id.menu_cointainer, expenseScreenFragment,
-                ExpenseScreenFragment::class.java.simpleName)?.addToBackStack("ExpenseScreenFragment")?.commit()
+            findNavController().navigate(R.id.action_show_expenses)
         }
     }
 
