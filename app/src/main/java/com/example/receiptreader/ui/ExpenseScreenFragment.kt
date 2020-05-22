@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.receiptreader.R
@@ -57,6 +58,9 @@ class ExpenseScreenFragment: Fragment() {
 
         }
 
+        btn_show_stats.setOnClickListener {
+            findNavController().navigate(R.id.action_show_stats)
+        }
 
         expenseViewModel.itemsLiveData.observe(viewLifecycleOwner, Observer {
             if(it.size>0){

@@ -280,9 +280,9 @@ class ScanScreenFragment : Fragment(), ActivityCompat.OnRequestPermissionsResult
                     token.contains("amt", true) -> blockType = BLOCK_TYPE_ITEM_AMT
                     else -> {
                         when(blockType) {
-                            BLOCK_TYPE_ITEM_NAME -> itemList.add(token)
-                            BLOCK_TYPE_ITEM_AMT -> amtList.add(token)
-                            BLOCK_TYPE_ITEM_QTY -> qtyList.add(token)
+                            BLOCK_TYPE_ITEM_NAME -> itemList.add(token.trim())
+                            BLOCK_TYPE_ITEM_AMT -> amtList.add(token.trim())
+                            BLOCK_TYPE_ITEM_QTY -> qtyList.add(token.trim())
                         }
                     }
                 }
