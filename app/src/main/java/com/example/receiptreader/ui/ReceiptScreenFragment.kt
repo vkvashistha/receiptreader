@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.receiptreader.R
 import com.example.receiptreader.adapter.RecieptItemListAdapter
+import com.example.receiptreader.data.Item
 import com.example.receiptreader.viewmodel.ReceiptViewModel
 import kotlinx.android.synthetic.main.fragment_add_receipt_screen.*
 
@@ -37,19 +38,17 @@ class ReceiptScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val data = arguments?.getString("data")
-        val list = receiptViewModel.parseReciept(data!!)
+        val data = arguments?.getSerializable("data")
+        val list = data as ArrayList<Item>
         filtered_list.apply {
             adapter = RecieptItemListAdapter(list)
             layoutManager = LinearLayoutManager(context)
-
         }
 
+        tv_total_amount.text = receiptViewModel.totalAmount(list).toString()
         btn_save_receipt.setOnClickListener {
             receiptViewModel.saveReceipt(list)
         }
-
-
 
     }
 }

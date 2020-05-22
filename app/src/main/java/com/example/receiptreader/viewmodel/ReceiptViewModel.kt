@@ -20,4 +20,13 @@ class ReceiptViewModel(application: Application) : AndroidViewModel(application)
     fun saveReceipt(itemList : List<Item>) {
         ExpenseRepository.saveExpenses(itemList)
     }
+
+    fun totalAmount(itemList: List<Item>) : Double {
+        var total = 0.0
+        for(item in itemList) {
+            total += item.price
+        }
+
+        return total
+    }
 }

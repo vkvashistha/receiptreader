@@ -252,9 +252,8 @@ class ScanScreenFragment : Fragment(), ActivityCompat.OnRequestPermissionsResult
         Log.i("Text Recognized", responseList.toString())
 
         val bundle = Bundle()
-        bundle.putString("data", responseList.toString())
+        bundle.putSerializable("data", responseList)
         findNavController().navigate(R.id.actionLaunchReceiptReader, bundle)
     }
-
 
 }
