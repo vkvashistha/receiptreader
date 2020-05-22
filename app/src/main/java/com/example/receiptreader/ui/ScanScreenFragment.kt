@@ -195,7 +195,7 @@ class ScanScreenFragment : Fragment(), ActivityCompat.OnRequestPermissionsResult
         }
 
         Log.i("Text Recognized", blockList.toString())
-        processText(blockList)
+        parseData(blockList)
     }
 
     private fun processText(blockList: java.util.ArrayList<java.util.ArrayList<String>>) {
@@ -250,6 +250,49 @@ class ScanScreenFragment : Fragment(), ActivityCompat.OnRequestPermissionsResult
             }
         }
         Log.i("Text Recognized", responseList.toString())
+
+        val bundle = Bundle()
+        bundle.putSerializable("data", responseList)
+        findNavController().navigate(R.id.actionLaunchReceiptReader, bundle)
+    }
+
+    fun parseData(blockList: java.util.ArrayList<java.util.ArrayList<String>>) {
+        var date = ""
+        var merchant = ""
+        val itemList = ArrayList<String>()
+        val amtList =  ArrayList<String>()
+        val qtyList = ArrayList<String>()
+
+        val responseList = ArrayList<Item>()
+
+        val BLOCK_TYPE_ITEM_NAME = 0
+        val BLOCK_TYPE_ITEM_QTY = 1
+        val BLOCK_TYPE_ITEM_AMT = 2
+
+        var blockType = -1
+        for(block in blockList) {
+            for(token in block) {
+                when {
+                    token.contains("date", true) -> date = token.split(":")[1]
+                    token.contains("merchant", true) -> merchant = token.split(":")[1]
+                    token.contains("item", true) -> blockType = BLOCK_TYPE_ITEM_NAME
+                    token.contains("qty", true) -> blockType = BLOCK_TYPE_ITEM_QTY
+                    token.contains("amt", true) -> blockType = BLOCK_TYPE_ITEM_AMT
+                    else -> {
+                        when(blockType) {
+                            BLOCK_TYPE_ITEM_NAME -> itemList.add(token)
+                            BLOCK_TYPE_ITEM_AMT -> amtList.add(token)
+                            BLOCK_TYPE_ITEM_QTY -> qtyList.add(token)
+                        }
+                    }
+                }
+
+            }
+        }
+
+        for(i in 0 until itemList.size) {
+            responseList.add(Item(0,itemList[i], 1.0, null, amtList[i].toDouble(), date, null, merchant))
+        }
 
         val bundle = Bundle()
         bundle.putSerializable("data", responseList)

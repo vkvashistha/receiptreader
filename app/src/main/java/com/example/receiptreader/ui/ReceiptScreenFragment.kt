@@ -1,6 +1,7 @@
 package com.example.receiptreader.ui
 
 import android.os.Bundle
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,6 +41,11 @@ class ReceiptScreenFragment : Fragment() {
 
         val data = arguments?.getSerializable("data")
         val list = data as ArrayList<Item>
+        val date = data[0].date
+        val merchant = data[0].merchant
+
+        et_date.setText(date)
+        et_merchant.setText(merchant)
         filtered_list.apply {
             adapter = RecieptItemListAdapter(list)
             layoutManager = LinearLayoutManager(context)
